@@ -15,9 +15,9 @@ jobs:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
         source_folder: 'guides'
-        destination_repo: 'SamSaprykin/dest-actions'
+        destination_repo: 'SamSaprykin/konak-meteor'
         user_email: 'saprykinse@gmail.com'
         user_name: 'SamSaprykin'
         commit_msg: 'Update blog files'
         destination_branch: 'main'
-        destination_folder: 'guides'
+        
