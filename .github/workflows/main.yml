@@ -9,37 +9,12 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: Mark test file
-      run: |-
-        echo $GITHUB_SHA > test02.md
-        echo $GITHUB_SHA > test03.md
-    - name: Ignore unchanged file
-      uses: dmnemec/copy_file_to_another_repo_action@main
-      env:
-        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-      with:
-        source_file: 'test01.md'
-        destination_repo: 'SamSaprykin/dest-actions'
-        user_email: 'devin.nemec@gmail.com'
-        user_name: 'dmnemec'
-
     - name: Push changed file
-      uses: dmnemec/copy_file_to_another_repo_action@main
+      uses: SamSaprykin/actions-test@main
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
         source_file: 'test02.md'
         destination_repo: 'SamSaprykin/dest-actions'
-        user_email: 'devin.nemec@gmail.com'
-        user_name: 'dmnemec'
-
-    - name: Check custom commit message
-      uses: dmnemec/copy_file_to_another_repo_action@main
-      env:
-        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-      with:
-        source_file: 'test03.md'
-        destination_repo: 'SamSaprykin/dest-actions'
-        user_email: 'devin.nemec@gmail.com'
-        user_name: 'dmnemec'
-        commit_message: 'A custom message.'
+        user_email: 'saprykinse@gmail.com'
+        user_name: 'SamSaprykin'
