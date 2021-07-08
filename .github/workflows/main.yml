@@ -15,8 +15,8 @@ jobs:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
         source_folder: 'guides'
-        destination_repo: 'SamSaprykin/dest-actions'
+        destination_repo: 'wtf'
         user_email: 'saprykinse@gmail.com'
         user_name: 'SamSaprykin'
-        commit_msg: 'Update the blog files'
+        commit_msg: 'Update blog files'
         destination_branch: 'main'
