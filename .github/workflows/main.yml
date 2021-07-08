@@ -1,23 +1,28 @@
-name: Push Folder
+name: CI
 
-on: push
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
-  copy-file:
+  build:
     runs-on: ubuntu-latest
+    container: pandoc/latex
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-
-    - name: Push changed file
-      uses: SamSaprykin/actions-test@main
-      env:
-        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-      with:
-        source_folder: 'guides'
-        destination_repo: 'SamSaprykin/dest-actions'
-        user_email: 'saprykinse@gmail.com'
-        user_name: 'SamSaprykin'
-        commit_msg: 'Update blog folder'
-        destination_branch: 'main'
-        destination_folder: 'guides'
+      - uses: actions/checkout@v2
+      - name: Pushes to another repository
+        id: push_directory
+        uses: SamSaprykin/actions-test@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source-directory: 'guides'
+          destination-github-username: 'SamSaprykin'
+          destination-repository-name: 'dest-actions'
+          user-email: saprykinse@gmail.com
+          commit-message: See ORIGIN_COMMIT from $GITHUB_REF
+          target-branch: main
+      - name: Test get variable exported by push-to-another-repository
+        run: echo $DESTINATION_CLONED_DIRECTORY
