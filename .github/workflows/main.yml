@@ -12,12 +12,12 @@ jobs:
     - name: Push changed file
       uses: SamSaprykin/actions-test@main
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GB_TOKEN: ${{ secrets.GB_TOKEN }}
       with:
         source_folder: 'guides'
         destination_repo: 'SamSaprykin/dest-actions'
         user_email: 'saprykinse@gmail.com'
         user_name: 'SamSaprykin'
-        commit_msg: 'Update blog files'
+        commit_msg: 'Update blog folder'
         destination_branch: 'main'
         destination_folder: 'guides'
