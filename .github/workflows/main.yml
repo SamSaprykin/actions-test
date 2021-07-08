@@ -1,28 +1,45 @@
-name: CI
+name: Push File
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+on: push
 
 jobs:
-  build:
+  copy-file:
     runs-on: ubuntu-latest
-    container: pandoc/latex
     steps:
-      - uses: actions/checkout@v2
-      - name: Pushes to another repository
-        id: push_directory
-        uses: SamSaprykin/actions-test@main
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-        with:
-          source-directory: 'guides'
-          destination-github-username: 'SamSaprykin'
-          destination-repository-name: 'dest-actions'
-          user-email: saprykinse@gmail.com
-          commit-message: See ORIGIN_COMMIT from $GITHUB_REF
-          target-branch: main
-      - name: Test get variable exported by push-to-another-repository
-        run: echo $DESTINATION_CLONED_DIRECTORY
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Mark test file
+      run: |-
+        echo $GITHUB_SHA > test02.md
+        echo $GITHUB_SHA > test03.md
+    - name: Ignore unchanged file
+      uses: dmnemec/copy_file_to_another_repo_action@main
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+      with:
+        source_file: 'test01.md'
+        destination_repo: 'SamSaprykin/dest-actions'
+        user_email: 'devin.nemec@gmail.com'
+        user_name: 'dmnemec'
+
+    - name: Push changed file
+      uses: dmnemec/copy_file_to_another_repo_action@main
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+      with:
+        source_file: 'test02.md'
+        destination_repo: 'SamSaprykin/dest-actions'
+        user_email: 'devin.nemec@gmail.com'
+        user_name: 'dmnemec'
+
+    - name: Check custom commit message
+      uses: dmnemec/copy_file_to_another_repo_action@main
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+      with:
+        source_file: 'test03.md'
+        destination_repo: 'SamSaprykin/dest-actions'
+        user_email: 'devin.nemec@gmail.com'
+        user_name: 'dmnemec'
+        commit_message: 'A custom message.'
