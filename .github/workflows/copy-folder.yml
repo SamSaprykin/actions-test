@@ -17,7 +17,7 @@ jobs:
           source_folder: 'guides'
           destination_repo: 'SamSaprykin/dest-actions'
           destination_folder: 'static'
-          user-email: saprykinse@gmail.com
-          user-name: SamSaprykin
-          commit-message: Update data with the latest published blog posts
-          target-branch: main
+          user_email: saprykinse@gmail.com
+          user_name: SamSaprykin
+          commit_message: Update data with the latest published blog posts
+          target_branch: main
