@@ -20,4 +20,3 @@ jobs:
         user_name: 'SamSaprykin'
         commit_msg: 'Update the blog files'
         destination_branch: 'main'
-        destination_branch_create: 'test'
