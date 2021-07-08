@@ -12,7 +12,7 @@ jobs:
     - name: Push changed file
       uses: SamSaprykin/actions-test@main
       env:
-        GB_TOKEN: ${{ secrets.GB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         source_folder: 'guides'
         destination_repo: 'SamSaprykin/dest-actions'
