@@ -10,7 +10,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Push changed file
-      uses: crykn/copy_file_to_another_repo_action@master
+      uses: crykn/copy_file_to_another_repo_action@main
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
@@ -19,3 +19,4 @@ jobs:
         user_email: 'saprykinse@gmail.com'
         user_name: 'SamSaprykin'
         commit_msg: '[GHA] Update the test files.'
+        destination_branch: 'main'

@@ -17,7 +17,7 @@ inputs:
     description: 'GitHub username for the commit'
     required: true
   destination_branch:
-    description: 'branch to push folder to, defaults to main'
+    description: 'branch to push folder to, defaults to master'
     required: false
   commit_msg:
     description: 'The commit message'
