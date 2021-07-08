@@ -25,8 +25,7 @@ CLONE_DIR=$(mktemp -d)
 echo "Cloning destination git repository"
 git config --global user.email "$INPUT_USER_EMAIL"
 git config --global user.name "$INPUT_USER_NAME"
-git clone --single-branch --branch $INPUT_DESTINATION_BRANCH "https://$API_TOKEN_GITHUB@github.com/$INPUT_DESTINATION_REPO.git" "$CLONE_DIR"
-
+git clone --single-branch --branch $INPUT_DESTINATION_BRANCH "https://$GB_TOKEN@github.com/$INPUT_DESTINATION_REPO.git" "$CLONE_DIR"
 
 if [ ! -z "$INPUT_DESTINATION_BRANCH_CREATE" ]
 then
@@ -48,4 +47,4 @@ then
   git push -u origin HEAD:$OUTPUT_BRANCH
 else
   echo "No changes detected"
-fi 
+fi
