@@ -19,5 +19,5 @@ jobs:
         user_email: 'saprykinse@gmail.com'
         user_name: 'SamSaprykin'
         commit_msg: 'Update blog files'
-        destination_branch: 'main'
+        destination_branch: 'master'
         
