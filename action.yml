@@ -16,13 +16,13 @@ inputs:
   user_name:
     description: 'GitHub username for the commit'
     required: true
-  target_branch:
+  destination_branch:
     description: 'branch to push folder to, defaults to master'
     required: false
   commit_msg:
     description: 'The commit message'
     required: false
-  destination-branch-create:
+  destination_branch_create:
     description: 'Destination branch to create for this commit'
     required: false
 runs:
