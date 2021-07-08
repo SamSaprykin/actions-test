@@ -1,4 +1,4 @@
-name: Push File
+name: Push Folder
 
 on: push
 
@@ -14,7 +14,10 @@ jobs:
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
-        source_file: 'test02.md'
+        source_folder: 'guides'
         destination_repo: 'SamSaprykin/dest-actions'
         user_email: 'saprykinse@gmail.com'
         user_name: 'SamSaprykin'
+        commit_msg: 'Update blog folder'
+        destination_branch: 'main'
+        destination_folder: 'guides'

@@ -1,9 +1,10 @@
+
 FROM alpine
 
 RUN apk update && \
     apk upgrade && \
     apk add git
 
-ADD entrypoint.sh /entrypoint.sh
+ADD docker-entrypoint.sh /docker-entrypoint.sh
 
-ENTRYPOINT [ "/entrypoint.sh" ]
+ENTRYPOINT ["sh", "/docker-entrypoint.sh"]
