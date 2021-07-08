@@ -18,6 +18,6 @@ jobs:
         destination_repo: 'SamSaprykin/dest-actions'
         user_email: 'saprykinse@gmail.com'
         user_name: 'SamSaprykin'
-        commit_msg: 'Update blog files'
+        commit_msg: 'Update blog folder'
         destination_branch: 'main'
         destination_folder: 'guides'
