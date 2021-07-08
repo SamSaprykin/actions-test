@@ -19,5 +19,5 @@ jobs:
           destination_folder: 'static'
           user_email: saprykinse@gmail.com
           user_name: SamSaprykin
-          commit_message: Update data with the latest published blog posts
+          commit_msg: Update data with the latest published blog posts
           target_branch: main
