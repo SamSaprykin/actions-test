@@ -6,8 +6,12 @@ jobs:
   copy-file:
     runs-on: ubuntu-latest
     steps:
-    - name: Commit latest notebooks to lecture-python.notebooks
-        uses: cpina/github-action-push-to-another-repository@v1.3
+    - uses: actions/checkout@v2
+    - name: Install mustache (to update the date)
+        run:  apk add ruby && gem install mustache
+    - name: Pushes to another repository
+        id: push_directory
+        uses: cpina/github-action-push-to-another-repository@main
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
