@@ -17,4 +17,4 @@ jobs:
           destination-repository-username: 'SamSaprykin'
           user-email: saprykinse@gmail.com
           commit-message: 'auto publishing updates to blog'
-          target-branch: main
+          target-branch: master
