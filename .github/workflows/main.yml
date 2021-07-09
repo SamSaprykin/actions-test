@@ -1,15 +1,13 @@
-name: Push Folder
-
+name: CI
 on: push
-
 jobs:
-  copy-file:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Pushes to another repository
-        id: push_directory
-        uses: cpina/github-action-push-to-another-repository@main
+      - name: Git checkout
+        uses: actions/checkout@v2
+      - name: Pushes to another repository CH
+        uses: cpina/github-action-push-to-another-repository@master
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
