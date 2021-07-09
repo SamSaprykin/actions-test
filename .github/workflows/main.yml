@@ -7,8 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Install mustache (to update the date)
-        run:  apk add ruby && gem install mustache
     - name: Pushes to another repository
         id: push_directory
         uses: cpina/github-action-push-to-another-repository@main
@@ -16,8 +14,9 @@ jobs:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
           source-directory: 'guides'
-          destination-repository-username: 'SamSaprykin'
-          destination-repository-name: 'dest-actions'
-          commit-message: 'auto publishing updates to blog'
           destination-github-username: 'SamSaprykin'
+          destination-repository-name: 'dest-actions'
+          destination-repository-username: 'SamSaprykin'
           user-email: saprykinse@gmail.com
+          commit-message: 'auto publishing updates to blog'
+          target-branch: main
