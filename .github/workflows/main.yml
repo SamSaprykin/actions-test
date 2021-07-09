@@ -9,7 +9,7 @@ jobs:
       - name: Pushes to another repository CH
         uses: cpina/github-action-push-to-another-repository@master
         env:
-          API_TOKEN_GITHUB: ${{ secrets.GITHUB_TOKEN }}
+          API_TOKEN_GITHUB: ${{ secrets.GB_TOKEN }}
         with:
           source-directory: 'guides'
           destination-github-username: 'SamSaprykin'
